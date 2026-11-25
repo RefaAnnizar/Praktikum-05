@@ -1,0 +1,169 @@
+/* ===== 1. Reset & Box Model ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f4f6f9;
+  color: #212529;
+}
+
+/* ===== 2. Navbar dan profil pengguna ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 64px;
+  padding: 0 1.5rem;
+  background: #1e3a5f;
+  color: #fff;
+}
+.brand { font-size: 1.25rem; font-weight: 700; }
+.nav-kanan { display: flex; align-items: center; gap: 1rem; }
+.notif {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 4px;
+  cursor: pointer;
+}
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  min-width: 18px;
+  padding: 1px 5px;
+  font-size: .7rem;
+  font-weight: 700;
+  line-height: 16px;
+  color: #fff;
+  background: #dc3545;
+  border-radius: 999px;
+}
+.profil { display: flex; align-items: center; gap: .55rem; font-size: .9rem; }
+.avatar {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #dce6f2;
+  color: #1e3a5f;
+  font-size: .72rem;
+  font-weight: 800;
+}
+.logout {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 6px;
+}
+
+/* ===== 3. Sidebar dan konten ===== */
+.wrapper { display: flex; flex: 1; min-height: 0; }
+.sidebar {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: #fff;
+  border-right: 1px solid #dee2e6;
+}
+.konten { flex: 1; min-width: 0; padding: 1.5rem; }
+.menu { display: flex; flex-direction: column; gap: 4px; }
+.menu a, .pengaturan {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: #495057;
+  text-decoration: none;
+}
+.menu a:hover, .pengaturan:hover { background: #e9ecef; }
+.menu a.aktif { background: #1e3a5f; color: #fff; }
+.pengaturan { margin-top: auto; }
+
+/* ===== 4. Kartu statistik dan panel ===== */
+.konten h1 { margin: 0 0 .35rem; }
+.sapaan { margin: 0 0 1.25rem; color: #6c757d; }
+.statistik {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kartu {
+  position: relative;
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+.kartu h2 {
+  margin: 0 0 .5rem;
+  font-size: .875rem;
+  font-weight: 500;
+  color: #6c757d;
+}
+.angka { margin: 0; font-size: 1.75rem; font-weight: 700; }
+.label-baru {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #fff0d9;
+  color: #8a4b08;
+  font-size: .7rem;
+  font-weight: 700;
+}
+.panel {
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+.panel h2 { margin-top: 0; font-size: 1.05rem; }
+
+/* ===== 5. Footer ===== */
+.footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: .875rem;
+  color: #6c757d;
+  background: #fff;
+  border-top: 1px solid #dee2e6;
+}
+
+/* ===== 6. Layar kecil ===== */
+@media (max-width: 768px) {
+  .navbar { padding: .75rem 1rem; flex-wrap: wrap; gap: .65rem; }
+  .nav-kanan { gap: .65rem; flex-wrap: wrap; }
+  .wrapper { flex-direction: column; }
+  .sidebar {
+    flex-basis: auto;
+    padding: .65rem 1rem;
+    border-right: 0;
+    border-bottom: 1px solid #dee2e6;
+  }
+  .menu { flex-direction: row; flex-wrap: wrap; }
+  .pengaturan { margin-top: .5rem; }
+  .konten { padding: 1rem; }
+  .statistik { flex-direction: column; }
+  .kartu { flex-basis: auto; }
+}
